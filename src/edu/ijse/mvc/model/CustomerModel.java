@@ -66,4 +66,35 @@ public class CustomerModel {
     public CustomerDto getCustomer(String CustID){
         return null;
     }
+    public String update(CustomerDto dto) throws SQLException, ClassNotFoundException{
+        Connection connection = DBConnection.getInstance().getConnection();
+        String sql = "UPDATE Customer SET CustTitle = ?, CustName = ?,DOM = ?, Salary = ?, CustAddress = ?, City = ?, PostalCodel =? WHERE CustID = ? " ;
+        PreparedStatement statement = connection.prepareStatement(sql);
+        
+        statement.setString(1, dto.getCustTitle());
+        statement.setString(2, dto.getCustName());
+        statement.setString(3, dto.getDOB());
+        statement.setDouble(4, dto.getSalary());
+        statement.setString(5, dto.getCustAddress());
+        statement.setString(6, dto.getCity());
+        statement.setString(7, dto.getProvince());
+        statement.setInt(8, dto.getPostalCode());
+        statement.setString(9, dto.getCustID());
+        
+
+        int resp = statement.executeUpdate();
+        return resp > 0 ? "Success" : "Fail";
+
+    }
+     public String deleteCustomer(String id) throws Exception{
+        Connection connection = DBConnection.getInstance().getConnection();
+        String sql = "DELETE FROM Customer WHERE CustID = ?";
+        PreparedStatement statement = connection.prepareStatement(sql);
+
+        statement.setString(1, id);
+
+        int result = statement.executeUpdate();
+        return result > 0 ? "Successfully Deleted" : "Fail";
+    }
+    
 }
