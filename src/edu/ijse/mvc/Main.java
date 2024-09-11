@@ -19,14 +19,14 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ClassNotFoundException, SQLException, java.sql.SQLException{
        ItemView itemview = new ItemView();
        itemview.setLocationRelativeTo(null);
        itemview.setVisible(true);
        
-       CustomerView customerview = new CustomerView();
+       /*CustomerView customerview = new CustomerView();
        customerview.setLocationRelativeTo(null);
-       customerview.setVisible(true);
+       customerview.setVisible(true);*/
        
        OrdersView orderview = new OrdersView();
        orderview.setLocationRelativeTo(null);
@@ -35,6 +35,9 @@ public class Main {
        OrderDetailView orderdetailview = new OrderDetailView();
        orderdetailview.setLocationRelativeTo(null);
        orderdetailview.setVisible(true);
+       
+       DBConnection.getInstance().getConnection();
+       new CustomerView().setVisible(true);
     }
 
    
