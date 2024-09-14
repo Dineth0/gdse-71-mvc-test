@@ -8,6 +8,6 @@ package edu.ijse.mvc.controller;
  *
  * @author dineth
  */
-public class OrderDetailController {
+public class OrderController {
     
 }

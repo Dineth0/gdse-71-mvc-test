@@ -8,10 +8,6 @@ package edu.ijse.mvc.model;
  *
  * @author dineth
  */
-class dto {
-
-    static String getOrderID() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+public class OrderModel {
     
 }

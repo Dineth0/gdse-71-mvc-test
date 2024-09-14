@@ -20,7 +20,7 @@ import java.util.List;
  * @author dineth
  */
 public class CustomerModel {
-    public ArrayList<CustomerDto> getAll() throws SQLException, ClassNotFoundException{
+   /* public ArrayList<CustomerDto> getAll() throws SQLException, ClassNotFoundException{
         Connection connection = DBConnection.getInstance().getConnection();
         String sql = "SELECT * FROM Customer";
         PreparedStatement statement = connection.prepareStatement(sql);
@@ -44,20 +44,20 @@ public class CustomerModel {
             customerDtos.add(customerDto);
         }
         return customerDtos;
-    }
-    public String save(CustomerDto dto) throws SQLException, ClassNotFoundException{
+    }*/
+    public String save(CustomerDto customerDto) throws SQLException, ClassNotFoundException{
         Connection connection = DBConnection.getInstance().getConnection();
         String sql = "INSERT INTO Customer VALUES (?,?,?,?,?,?,?,?,?)";
         PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setString(1, dto.getCustID());
-        statement.setString(2, dto.getCustTitle());
-        statement.setString(3, dto.getCustName());
-        statement.setString(4, dto.getDOB());
-        statement.setDouble(5, dto.getSalary());
-        statement.setString(6, dto.getCustAddress());
-        statement.setString(7, dto.getCity());
-        statement.setString(8, dto.getProvince());
-        statement.setInt(9, dto.getPostalCode());
+        statement.setString(1, customerDto.getCustID());
+        statement.setString(2, customerDto.getCustTitle());
+        statement.setString(3, customerDto.getCustName());
+        statement.setString(4, customerDto.getDOB());
+        statement.setDouble(5, customerDto.getSalary());
+        statement.setString(6, customerDto.getCustAddress());
+        statement.setString(7, customerDto.getCity());
+        statement.setString(8, customerDto.getProvince());
+        statement.setInt(9, customerDto.getPostalCode());
         
 
         int resp = statement.executeUpdate();
@@ -67,32 +67,32 @@ public class CustomerModel {
     public CustomerDto getCustomer(String CustID){
         return null;
     }
-    public String update(CustomerDto dto) throws SQLException, ClassNotFoundException{
+    public String update(CustomerDto customerDto) throws SQLException, ClassNotFoundException{
         Connection connection = DBConnection.getInstance().getConnection();
         String sql = "UPDATE Customer SET CustTitle = ?, CustName = ?,DOM = ?, Salary = ?, CustAddress = ?, City = ?, PostalCodel =? WHERE CustID = ? " ;
         PreparedStatement statement = connection.prepareStatement(sql);
         
-        statement.setString(1, dto.getCustTitle());
-        statement.setString(2, dto.getCustName());
-        statement.setString(3, dto.getDOB());
-        statement.setDouble(4, dto.getSalary());
-        statement.setString(5, dto.getCustAddress());
-        statement.setString(6, dto.getCity());
-        statement.setString(7, dto.getProvince());
-        statement.setInt(8, dto.getPostalCode());
-        statement.setString(9, dto.getCustID());
+        statement.setString(1, customerDto.getCustTitle());
+        statement.setString(2, customerDto.getCustName());
+        statement.setString(3, customerDto.getDOB());
+        statement.setDouble(4, customerDto.getSalary());
+        statement.setString(5, customerDto.getCustAddress());
+        statement.setString(6, customerDto.getCity());
+        statement.setString(7, customerDto.getProvince());
+        statement.setInt(8, customerDto.getPostalCode());
+        statement.setString(9, customerDto.getCustID());
         
 
         int resp = statement.executeUpdate();
         return resp > 0 ? "Success" : "Fail";
 
     }
-     public String deleteCustomer(String id) throws Exception{
+     public String deleteCustomer(String CustID) throws Exception{
         Connection connection = DBConnection.getInstance().getConnection();
         String sql = "DELETE FROM Customer WHERE CustID = ?";
         PreparedStatement statement = connection.prepareStatement(sql);
 
-        statement.setString(1, id);
+        statement.setString(1, CustID);
 
         int result = statement.executeUpdate();
         return result > 0 ? "Successfully Deleted" : "Fail";
@@ -136,8 +136,8 @@ public class CustomerModel {
         return customerDtos;
     }
 
-    public List<CustomerDto> getAllCustomers() {
+    /*public List<CustomerDto> getAllCustomers() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    }*/
     
 }

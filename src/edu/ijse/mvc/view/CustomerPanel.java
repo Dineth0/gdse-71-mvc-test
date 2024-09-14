@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
  * @author dineth
  */
 public class CustomerPanel extends javax.swing.JPanel {
-
+    private final CustomerController CustomerController = new CustomerController();
     /**
      * Creates new form customerPanel
      */
@@ -173,7 +173,7 @@ public class CustomerPanel extends javax.swing.JPanel {
                                 .addComponent(jLabel10)
                                 .addGap(18, 18, 18)
                                 .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 245, Short.MAX_VALUE)
                                 .addComponent(jButton3))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -264,8 +264,7 @@ public class CustomerPanel extends javax.swing.JPanel {
                         .addGap(3, 3, 3)
                         .addComponent(jButton3)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -307,7 +306,7 @@ public class CustomerPanel extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
         private void loadTable() {
-        String columns[] = {"Customer Id", "Cutomer Name", "DOB", "Salary", "Address", "Province", "Postal Code"};
+        String columns[] = {"Customer ID", "Title","Name", "DOB", "Salary", "City","Address", "Province", "Postal Code"};
         DefaultTableModel dtm = new DefaultTableModel(columns, 0){
 
             public boolean isCellEditable(int row, int column) {
@@ -315,9 +314,9 @@ public class CustomerPanel extends javax.swing.JPanel {
             }
 
         };
-        jTable3.setModel(dtm);
+        jTable4.setModel(dtm);
         try {
-            List<CustomerDto> customerDtos = CustomerController.getAllCustomer();
+            List<CustomerDto> customerDtos = CustomerController.getAllCustomer() ;
             for (CustomerDto dto : customerDtos) {
                 Object [] rowData = {dto.getCustID(), dto.getCustTitle() + " " + dto.getCustName(), dto.getDOB(), dto.getSalary(), dto.getCustAddress() + ", " + dto.getCity(), dto.getProvince(), dto.getPostalCode()};
                 dtm.addRow(rowData);

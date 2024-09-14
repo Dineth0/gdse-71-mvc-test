@@ -7,7 +7,7 @@ package edu.ijse.mvc.controller;
 import edu.ijse.mvc.dto.CustomerDto;
 import edu.ijse.mvc.model.CustomerModel;
 import java.sql.SQLException;
-import java.util.ArrayList;
+
 import java.util.List;
 
 /**
@@ -16,14 +16,12 @@ import java.util.List;
  */
 public class CustomerController {
 
-    public static List<CustomerDto> getAllCustomer() {
+    /*public static List<CustomerDto> getAllCustomer() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-        private final CustomerModel CUSTOMER_MODEL;
+    }*/
+        private CustomerModel CUSTOMER_MODEL = new CustomerModel();
 
-    public CustomerController() {
-        this.CUSTOMER_MODEL = new CustomerModel();
-    }
+    
 
     /*public ArrayList<CustomerDto> getAllCustomers() throws SQLException, ClassNotFoundException{
         ArrayList<CustomerDto> customerDtos = CUSTOMER_MODEL.getAll();
@@ -45,8 +43,9 @@ public class CustomerController {
          CustomerDto dto = CUSTOMER_MODEL.getCustomer(CustID);
          return dto;
      }
-      public List<CustomerDto> getAllCustomers() throws SQLException, ClassNotFoundException {
-        return CUSTOMER_MODEL.getAllCustomers();
+      public List<CustomerDto> getAllCustomer() throws  Exception {
+        List<CustomerDto> dtos = CUSTOMER_MODEL.getAllCustomer();
+        return dtos;
     }
     }
       

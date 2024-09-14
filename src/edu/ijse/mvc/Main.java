@@ -6,10 +6,10 @@ package edu.ijse.mvc;
 
 
 import edu.ijse.mvc.db.DBConnection;
-import edu.ijse.mvc.view.ItemView;
+//import edu.ijse.mvc.view.ItemView;
 import edu.ijse.mvc.view.CustomerView;
-import edu.ijse.mvc.view.OrdersView;
-import edu.ijse.mvc.view.OrderDetailView;
+import java.sql.SQLException;
+
 /**
  *
  * @author dineth
@@ -18,9 +18,11 @@ public class Main {
 
     /**
      * @param args the command line arguments
+     * @throws java.lang.ClassNotFoundException
+     * @throws java.sql.SQLException
      */
-    public static void main(String[] args) throws ClassNotFoundException, SQLException, java.sql.SQLException{
-       ItemView itemview = new ItemView();
+    public static void main(String[] args) throws ClassNotFoundException,SQLException{
+       /*ItemView itemview = new ItemView();
        itemview.setLocationRelativeTo(null);
        itemview.setVisible(true);
        
@@ -28,13 +30,7 @@ public class Main {
        customerview.setLocationRelativeTo(null);
        customerview.setVisible(true);*/
        
-       OrdersView orderview = new OrdersView();
-       orderview.setLocationRelativeTo(null);
-       orderview.setVisible(true);
        
-       OrderDetailView orderdetailview = new OrderDetailView();
-       orderdetailview.setLocationRelativeTo(null);
-       orderdetailview.setVisible(true);
        
        DBConnection.getInstance().getConnection();
        new CustomerView().setVisible(true);
